@@ -3,6 +3,7 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'features/web_helpers'
 # require 'bcrypt'
 
 # Specify that this is a Test environment
