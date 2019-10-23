@@ -6,7 +6,7 @@ feature 'user can view all spaces' do
     # user_signup
     # click_button('explore')
     visit '/view-spaces'
-    save_and_open_page
+    # save_and_open_page
     expect(page).to have_content("Space Name")
   end
 end
