@@ -66,7 +66,7 @@ class MakersBnB < Sinatra::Base
 
   # Sign Out
   post '/users/:id/session/destroy' do
-    session[:user_id] = nil
+    session.clear
     flash[:notice] = "You have been signed out."
     redirect '/'
   end
@@ -88,7 +88,6 @@ class MakersBnB < Sinatra::Base
     )
     redirect '/user-options'
   end
-
   # Delete space
 
   run! if app_file == $0
