@@ -70,7 +70,7 @@ class MakersBnB < Sinatra::Base
 
   # View spaces
   get '/view-spaces' do
-    p @spaces = Space.all
+    @spaces = Space.all
     erb :view_spaces
 end
 
