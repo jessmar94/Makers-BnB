@@ -1,8 +1,7 @@
 feature 'View homepage' do
-
   scenario 'view homepage' do
     visit '/'
-    expect(page).to have_button 'Sign Up'
+    click_button 'sign up'
+    expect(current_path).to eq '/user-options'
   end
-  
 end

@@ -1,11 +1,8 @@
-ENV['RACK_ENV']='development'
-
 require 'bcrypt'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/activerecord'
-
 require './models/user'
 require './models/space'
 require './models/request'
@@ -73,8 +70,9 @@ class MakersBnB < Sinatra::Base
 
   # View spaces
   get '/view-spaces' do
+    p @spaces = Space.all
     erb :view_spaces
-  end
+end
 
   get '/host-space' do
     erb :host_spaces

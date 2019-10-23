@@ -13,6 +13,7 @@ gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 
 group :test do
+  gem 'launchy'
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.71.0'
