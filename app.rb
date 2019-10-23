@@ -1,12 +1,13 @@
-ENV['RACK_ENV']='development'
-
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
+# require '/database_connection_setup'
 
 require './models/user'
 require './models/space'
 require './models/request'
+
+# ENV['RACK_ENV']='development'
 
 class MakersBnB < Sinatra::Base
 
