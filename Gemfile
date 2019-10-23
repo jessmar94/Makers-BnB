@@ -4,6 +4,7 @@ ruby '2.6.0'
 
 gem 'activemodel'
 gem 'activerecord'
+gem 'irb', require: false
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
