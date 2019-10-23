@@ -41,8 +41,9 @@ class MakersBnB < Sinatra::Base
   # Sign Out
   # View spaces
   get '/view-spaces' do
+    p @spaces = Space.all
     erb :view_spaces
-  end
+end
 
   get '/host-space' do
     erb :host_spaces

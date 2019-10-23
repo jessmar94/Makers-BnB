@@ -1,8 +1,12 @@
-feature 'options to view or host' do
-  scenario 'user can choose to view' do
-    user_signup
+feature 'user can view all spaces' do
+  scenario 'spaces visable' do
+    10.times {
+      Space.create(name: "Space Name", description: "Testing", ppnd: 5000)
+    }
+    # user_signup
+    # click_button('explore')
+    visit '/view-spaces'
     save_and_open_page
-    click_button('explore')
-    expect(page).to have_content('hello')
+    expect(page).to have_content("Space Name")
   end
 end
