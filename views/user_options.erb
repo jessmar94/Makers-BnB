@@ -12,6 +12,12 @@
       <button type="submit" name="host">Host a space</button>
     </form>
 
+    <div>
+      <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+        <button type="submit">Sign Out</button>
+      </form>
+    </div>
+
 
   </body>
 </html>
