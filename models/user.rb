@@ -1,3 +1,5 @@
+require 'sinatra/activerecord'
+
 class User < ActiveRecord::Base
   has_many :spaces
   has_many :requests
@@ -9,5 +11,5 @@ class User < ActiveRecord::Base
   # { user_id: existing_user.id, user_name: existing_user.name }
   #
   # end
-  
+
 end

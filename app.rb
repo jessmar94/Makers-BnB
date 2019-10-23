@@ -5,13 +5,15 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 
 require './models/user'
+require './models/space'
+require './models/request'
 
 class MakersBnB < Sinatra::Base
 
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
 
-  enable :sessions 
+  enable :sessions
 
   # Index Page
   get '/' do
@@ -36,10 +38,24 @@ class MakersBnB < Sinatra::Base
   end
 
   # Log in
-
   # Sign Out
-
   # View spaces
+  get '/view-spaces' do
+    erb :view_spaces
+  end
+
+  get '/host-space' do
+    erb :host_spaces
+  end
+
+  post '/host_spaces' do
+    space = Space.create(
+      name: params[:name],
+      description: params[:description],
+      ppnd: params[:ppn],
+    )
+    redirect '/user-options'
+  end
 
   # Delete space
 

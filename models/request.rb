@@ -1,6 +1,6 @@
 require 'sinatra/activerecord'
 
-class Space < ActiveRecord::Base
+class Request < ActiveRecord::Base
 
   belongs_to :user
 
