@@ -1,5 +1,6 @@
 ENV['RACK_ENV']='development'
 
+# require 'bcrypt'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
@@ -29,11 +30,13 @@ class MakersBnB < Sinatra::Base
     )
 
     session[:user_id] = user.id
-    # session[:username] = username.username
+    session[:user_name] = user.username
     redirect '/user-options'
   end
 
   get '/user-options' do
+    @user = User.find_by(id: session[:user_id])
+    # p "Hello " + @user.username
     erb :user_options
   end
 
