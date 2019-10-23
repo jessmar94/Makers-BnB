@@ -38,9 +38,7 @@ class MakersBnB < Sinatra::Base
   end
 
   # Log in
-
   # Sign Out
-
   # View spaces
   get '/view-spaces' do
     erb :view_spaces
