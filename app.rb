@@ -13,7 +13,7 @@ class MakersBnB < Sinatra::Base
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
 
-  enable :sessions
+  enable :sessions, :method_override 
 
   # Index Page
   get '/' do
