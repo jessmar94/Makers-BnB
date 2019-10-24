@@ -8,6 +8,7 @@ require './models/space'
 require './models/request'
 
 class MakersBnB < Sinatra::Base
+  
 
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
@@ -40,7 +41,7 @@ class MakersBnB < Sinatra::Base
 
   get '/user-options' do
     @user = User.find_by(id: session[:user_id])
-    # p "Hello " + @user.username
+    #p "Hello " + @user.username
     erb :user_options
   end
 
@@ -84,20 +85,31 @@ class MakersBnB < Sinatra::Base
     erb :view_one_space
   end
 
-  get '/host-space' do
+# Listing a space
+  get '/spaces/new' do
     erb :host_spaces
   end
 
-  post '/host_spaces' do
-    space = Space.create(
+  post '/spaces/new/:id' do
+    @space = Space.create(
       name: params[:name],
       description: params[:description],
-      ppnd: params[:ppn]
+      ppnd: params[:ppn],
+      user_id: session[:user_id]
     )
-    redirect '/user-options'
+    session[:space_id] = @space.id
+    flash[:notice] = "Your listing, #{@space.name}, ID #{@space.id} has been successfully added."
+    redirect '/spaces/my-spaces'
+  end
+
+  get "/spaces/my-spaces" do
+    space = Space.all
+    @my_spaces = space.where(user_id: session[:user_id])
+    erb :view_my_spaces
   end
   # Delete space
 
   run! if app_file == $0
+
 
 end

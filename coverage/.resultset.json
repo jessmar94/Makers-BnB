@@ -1,0 +1,137 @@
+{
+  "RSpec": {
+    "coverage": {
+
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/features/homepage_spec.rb": [
+
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/features/homepage_spec.rb": [
+
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/features/user_login_spec.rb": [
+
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/features/user_login_spec.rb": [
+
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/features/user_signout_spec.rb": [
+
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/features/user_signout_spec.rb": [
+        null,
+
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/features/view_all_spaces_spec.rb": [
+
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/features/view_all_spaces_spec.rb": [
+
+        1,
+        1,
+        1,
+        10,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/features/view_myspaces_spec.rb": [
+        1,
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/models/request_spec.rb": [
+        1,
+        null,
+
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/vijaykurian/Makers/Makers-BnB/spec/models/user_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/models/space_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/jessicamarais/Makers/Makers_Week6/Makers-BnB/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+
+    "timestamp": 1571913356
+
+    "timestamp": 1571844112
+
+  }
+}
