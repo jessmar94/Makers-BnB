@@ -82,7 +82,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
-    @space = Space.find(params[:id])
+    p @space = Space.find(params[:id])
+    p @dates = Availability.all
     erb :view_one_space
   end
 
@@ -95,7 +96,7 @@ class MakersBnB < Sinatra::Base
     @space = Space.create(
       name: params[:name],
       description: params[:description],
-      ppnd: params[:ppn],
+      ppn: params[:ppn],
       user_id: session[:user_id]
 
     )

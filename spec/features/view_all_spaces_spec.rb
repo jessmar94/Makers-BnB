@@ -21,17 +21,4 @@ feature 'user can view all spaces' do
     end
   end
 
-  scenario "shows the spaces availability" do
-    10.times {
-      space = Space.create(name: "Space Name", description: "Testing", ppn: 5000)
-      dates = ['2019-10-31','2019-11-02','2019-12-03']
-      dates.each do |date|
-        Availability.create(spaces_id: space.id, date_offered: date)
-      end
-    }
-    visit '/spaces'
-    expect(page).to have_content "31 Oct"
-    expect(page).to have_content "02 Nov"
-    expect(page).to have_content "03 Dec"
-  end
 end
