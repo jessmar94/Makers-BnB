@@ -12,7 +12,7 @@ feature 'user can view details for one space' do
     Space.create(name: "Space Name", description: "Testing", ppn: 5000)
     visit '/spaces'
     click_link('See more...')
-    click_link('Go back...')
+    click_link('Go back')
     expect(current_path).to eq("/spaces")
   end
 
@@ -20,7 +20,7 @@ feature 'user can view details for one space' do
     Space.create(name: "Space Name", description: "Testing", ppn: 5000)
     visit '/spaces'
     click_link('See more...')
-    click_link('Book this space')
+    expect(page).to have_link 'Book this space'
 
   end
 end
