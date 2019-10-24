@@ -23,18 +23,16 @@ feature 'user can view iundividual space page' do
     expect(page).to have_link 'Book this space'
 
   end
-  
+
   scenario "shows the spaces availability" do
     space = Space.create(name: "Space Name", description: "Testing", ppn: 5000)
-    dates = ['2019-10-31','2019-11-02','2019-12-03']
-    dates.each do |date|
-      Availability.create(spaces_id: space.id, date_offered: date)
-    end
-    
-    visit "/space/:#{space.id}"
+    Availability.create(spaces_id: space.id, date_offered: '2019-10-31')
+    Availability.create(spaces_id: space.id, date_offered: '2019-11-30')
+
+
+    visit "/spaces/#{space.id}"
     save_and_open_page
     expect(page).to have_content "31 Oct"
-    expect(page).to have_content "2 Nov"
-    expect(page).to have_content "3 Dec"
+    expect(page).to have_content "30 Nov"
   end
 end
