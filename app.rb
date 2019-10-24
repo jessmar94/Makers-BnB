@@ -71,7 +71,6 @@ class MakersBnB < Sinatra::Base
   end
 
   # View spaces
-
   post '/spaces' do
     redirect '/spaces'
   end
@@ -88,24 +87,25 @@ class MakersBnB < Sinatra::Base
   end
 
 # Listing a space
-  get '/spaces/new' do
+  get '/new-spaces' do
+    p "WHY ARE YOU FAILING"
     erb :host_spaces
   end
 
-  post '/spaces/new/:id' do
-    @space = Space.create(
+  post '/new-spaces' do
+    p "WHAT THE HELL"
+    @new_space = Space.create(
       name: params[:name],
       description: params[:description],
       ppn: params[:ppn],
       user_id: session[:user_id]
-
     )
-    session[:space_id] = @space.id
-    flash[:notice] = "Your listing, #{@space.name}, ID #{@space.id} has been successfully added."
-    redirect '/spaces/my-spaces'
+    session[:space_id] = @new_space.id
+    flash[:notice] = "Your listing, #{@new_space.name}, ID #{@new_space.id} has been successfully added."
+    redirect '/my-spaces'
   end
 
-  get "/spaces/my-spaces" do
+  get "/my-spaces" do
     space = Space.all
     @my_spaces = space.where(user_id: session[:user_id])
     erb :view_my_spaces

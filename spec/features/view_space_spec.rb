@@ -12,7 +12,7 @@ feature 'user can view iundividual space page' do
     Space.create(name: "Space Name", description: "Testing", ppn: 5000)
     visit '/spaces'
     click_link('See more...')
-    click_link('Go back...')
+    click_link('Go back')
     expect(current_path).to eq("/spaces")
   end
 
@@ -20,7 +20,8 @@ feature 'user can view iundividual space page' do
     Space.create(name: "Space Name", description: "Testing", ppn: 5000)
     visit '/spaces'
     click_link('See more...')
-    click_link('Book this space')
+    expect(page).to have_link 'Book this space'
+
   end
   
   scenario "shows the spaces availability" do

@@ -8,10 +8,8 @@
     <div class="name"> <%= "#{@space.name}" %> </div> <br>
     <div class="description"> <%= "#{@space.description}" %> </div> <br>
     <div class="ppn"> <%= "Price per night only: £#{@space.ppn / 100}" %> </div>
-
-    <%= @dates%>
-
-    <a href="/spaces"%>Go back... </a>
     <a href="/spaces/request"%>Book this space </a>
+    <br>
+    <a href="/spaces"%>Go back</a>
   </body>
 </html>
