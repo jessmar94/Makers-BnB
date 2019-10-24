@@ -6,7 +6,10 @@
  <body>
  <% @spaces.each do |space| %>
   <div class="space" id=<%="#{space.id}"%>>
-    <%= "#{space.name}" %> <br>
+    <div class="name"> <%= "#{space.name}" %> </div> <br>
+    <div class="description"> <%= "#{space.description}" %> </div> <br>
+    <div class="ppn"> <%= "Price per night only: £#{space.ppnd / 100}" %> </div>
+    <a href="spaces/:<%="#{space.id}"%>" >See more... </a>
   </div>
  <% end %>
  </body>
