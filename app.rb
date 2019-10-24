@@ -69,10 +69,20 @@ class MakersBnB < Sinatra::Base
   end
 
   # View spaces
+
+  post '/spaces' do
+    redirect '/spaces'
+  end
+
   get '/spaces' do
     @spaces = Space.all
     erb :view_spaces
-end
+  end
+
+  get '/spaces/:id' do
+    @space = Space.find(params[:id])
+    erb :view_one_space
+  end
 
   get '/host-space' do
     erb :host_spaces
@@ -82,7 +92,7 @@ end
     space = Space.create(
       name: params[:name],
       description: params[:description],
-      ppnd: params[:ppn],
+      ppnd: params[:ppn]
     )
     redirect '/user-options'
   end
