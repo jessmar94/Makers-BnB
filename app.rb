@@ -81,7 +81,8 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
-    @space = Space.find(params[:id])
+    p @space = Space.find(params[:id])
+    p @dates = Availability.all
     erb :view_one_space
   end
 

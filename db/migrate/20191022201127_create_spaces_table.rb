@@ -4,7 +4,7 @@ class CreateSpacesTable < ActiveRecord::Migration[6.0]
       t.belongs_to :availabilities
       t.string :name
       t.string :description
-      t.integer :ppn
+      t.integer :ppnd
       t.datetime :created_at
     end
   end
