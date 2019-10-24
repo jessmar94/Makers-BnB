@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>My Requests</h1>
+    <div class="flash-notice">
+          <%= flash[:notice] %>
+    </div>
+    <h3> Requests I've Made </h3>
+       <% @requests_made.each do |request| %>
+        <li> Request ID: <%=request.id %> </li>
+          <br>Space ID: <%=request.space_id %>
+          <br>Start Date: <%=request.start_date %>
+          <br>End Date: <%=request.end_date %>
+          <br>Status: <%=request.status %>
+          <br>
+          <br>
+       <% end %>
+
+    <h3> Requests I've Received </h3>
+      <% @requests_received.each do |request| %>
+      <li> Request ID: <%=request.id %> </li>
+        <br>Space ID: <%=request.space_id %>
+        <br>Start Date: <%=request.start_date %>
+        <br>End Date: <%=request.end_date %>
+        <br>Status: <%=request.status %>
+          <form class="" action="/requests" method="post">
+            <button type="submit" name="accept">Accept</button>
+            <button type="submit" name="decline">Decline</button>
+          </form>
+        <br>
+        <br>
+     <% end %>
+
+  </body>
+</html>

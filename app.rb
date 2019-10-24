@@ -83,17 +83,16 @@ class MakersBnB < Sinatra::Base
   get '/spaces/:id' do
     p @space = Space.find(params[:id])
     p @dates = Availability.all
+    session[:space_id] = @space.id
     erb :view_one_space
   end
 
 # Listing a space
   get '/new-spaces' do
-    p "WHY ARE YOU FAILING"
     erb :host_spaces
   end
 
   post '/new-spaces' do
-    p "WHAT THE HELL"
     @new_space = Space.create(
       name: params[:name],
       description: params[:description],
@@ -110,6 +109,41 @@ class MakersBnB < Sinatra::Base
     @my_spaces = space.where(user_id: session[:user_id])
     erb :view_my_spaces
   end
+
+  # Requests
+  post '/requests/new' do
+    my_request = Request.create(
+      user_id: session[:user_id],
+      space_id: session[:space_id],
+      start_date: params[:start_date],
+      end_date: params[:end_date],
+      status: "Pending"
+    )
+    session[:request_id] = my_request.id
+    flash[:notice] = "Your request, ID #{session[:request_id]}, has been created. Please check this page for the status of your request."
+    redirect '/requests'
+  end
+
+  get '/requests' do
+    request = Request.all
+    @requests_made = request.where(user_id: session[:user_id])
+    space = Space.all
+    @requests_received = request.where(space_id: (space.where(user_id: session[:user_id])))
+
+    erb :view_my_requests
+  end
+
+  post '/requests' do
+    request = Request.all
+    request_received = request.where(id: params[:id])
+    if params[:accept]
+      Request.update(request_received.id, :status => "Declined")
+    elsif params[:decline]
+      Request.update(request_received.id, :status => "Accepted")
+    end 
+  end
+
+
   # Delete space
 
   run! if app_file == $0
