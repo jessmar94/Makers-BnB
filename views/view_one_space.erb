@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="name"> <%= "#{@space.name}" %> </div> <br>
+    <div class="description"> <%= "#{@space.description}" %> </div> <br>
+    <div class="ppn"> <%= "Price per night only: £#{@space.ppnd / 100}" %> </div>
+    <a href="/spaces"%>Go back... </a>
+    <a href="/spaces/request"%>Book this space </a>
+  </body>
+</html>

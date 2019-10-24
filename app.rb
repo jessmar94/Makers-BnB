@@ -70,9 +70,19 @@ class MakersBnB < Sinatra::Base
   end
 
   # View spaces
+
+  post '/spaces' do
+    redirect '/spaces'
+  end
+
   get '/spaces' do
     @spaces = Space.all
     erb :view_spaces
+  end
+
+  get '/spaces/:id' do
+    @space = Space.find(params[:id])
+    erb :view_one_space
   end
 
 # Listing a space
