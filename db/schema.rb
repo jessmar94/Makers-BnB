@@ -10,31 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_110725) do
+ActiveRecord::Schema.define(version: 2019_10_24_095629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "all_spaces", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "request_id", null: false
-    t.string "name"
-    t.string "description"
-    t.integer "ppnd"
+  create_table "availabilities", force: :cascade do |t|
+    t.bigint "spaces_id"
+    t.bigint "requests_id"
+    t.datetime "date_offered"
     t.datetime "created_at"
-    t.index ["request_id"], name: "index_all_spaces_on_request_id"
-    t.index ["user_id"], name: "index_all_spaces_on_user_id"
-  end
-
-  create_table "new_space", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "request_id", null: false
-    t.string "name"
-    t.string "description"
-    t.integer "ppnd"
-    t.datetime "created_at"
-    t.index ["request_id"], name: "index_new_space_on_request_id"
-    t.index ["user_id"], name: "index_new_space_on_user_id"
+    t.index ["requests_id"], name: "index_availabilities_on_requests_id"
+    t.index ["spaces_id"], name: "index_availabilities_on_spaces_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -51,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_110725) do
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "ppnd"
+    t.integer "ppn"
     t.datetime "created_at"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_spaces_on_user_id"

@@ -1,0 +1,3 @@
+capybara-*.html
+/coverage.data
+/coverage/

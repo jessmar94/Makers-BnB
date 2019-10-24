@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 require './models/user'
 require './models/space'
 require './models/request'
+require './models/availability'
 
 class MakersBnB < Sinatra::Base
 
@@ -82,7 +83,7 @@ end
     space = Space.create(
       name: params[:name],
       description: params[:description],
-      ppnd: params[:ppn],
+      ppn: params[:ppn],
     )
     redirect '/user-options'
   end
