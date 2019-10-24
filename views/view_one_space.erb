@@ -3,16 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <center> <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+      <div>
+        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+          <button type="submit">Sign Out</button>
+        </form>
+      </div>
+      </center>
   </head>
   <body>
     <div class="name"> <%= "#{@space.name}" %> </div> <br>
     <div class="description"> <%= "#{@space.description}" %> </div> <br>
+
+    <div class="ppn"> <%= "Price per night only: £#{@space.ppn / 100}" %> </div>
+    <form class="" action="/requests/new" method="post">
+      Start date: <input type="date" name="start_date"></input>
+      <br>
+      End date: <input type="date" name="end_date"></input>
+      <br>
+      <button type="sumbit" name="request_space">Request this space</button>
+    </form>
+
     <div class="ppn"> <%= "Price per night only: £#{@space.ppn}" %> </div>
     Availability:
       <%@dates.each do |date| %>
         <div class="availability"> <%= "#{date.date_offered.strftime("%d %b")}" %> </div>
       <%end%>
     <a href="/spaces/request"%>Book this space </a>
+
     <br>
     <a href="/spaces"%>Go back</a>
   </body>

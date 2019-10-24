@@ -3,6 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <center> <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+      <div>
+        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+          <button type="submit">Sign Out</button>
+        </form>
+      </div>
+      <form class="" action="/requests">
+        <button type="submit" name="requests">My Requests</button>
+      </form>
+      </center>
   </head>
   <body>
     <form class="form-inline" action="/spaces">
@@ -11,13 +23,5 @@
     <form class="" action="/new-spaces">
       <button type="submit" name="host">Host a space</button>
     </form>
-
-    <div>
-      <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
-        <button type="submit">Sign Out</button>
-      </form>
-    </div>
-
-
   </body>
 </html>

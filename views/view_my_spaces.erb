@@ -2,9 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
     <center> <form class="" action="/user-options">
       <button type="submit" name="Home"> Home </button>
     </form>
+      <div>
+        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+          <button type="submit">Sign Out</button>
+        </form>
+      </div>
       </center>
 
     <title>
