@@ -7,9 +7,9 @@ feature 'user can view all spaces' do
     # click_button('explore')
     visit '/spaces'
     expect(page).to have_content("Space Name")
-    
+
   end
-  
+
   scenario "page shows the space's description" do
     10.times {
       Space.create(name: "Space Name", description: "Testing", ppn: 5000)
