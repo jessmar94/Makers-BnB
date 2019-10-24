@@ -95,7 +95,7 @@ class MakersBnB < Sinatra::Base
     @space = Space.create(
       name: params[:name],
       description: params[:description],
-      ppnd: params[:ppn],
+      ppn: params[:ppn],
       user_id: session[:user_id]
 
     )
