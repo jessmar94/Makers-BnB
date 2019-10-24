@@ -42,7 +42,6 @@ class MakersBnB < Sinatra::Base
 
   get '/user-options' do
     @user = User.find_by(id: session[:user_id])
-    #p "Hello " + @user.username
     erb :user_options
   end
 
@@ -81,9 +80,17 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces/:id' do
+
     p @space = Space.find(params[:id])
     p @dates = Availability.all
     session[:space_id] = @space.id
+
+    @space = Space.find(params[:id])
+    # p Space.all
+    @dates = Availability.where(spaces_id: @space.id)
+    p "dates"
+    p @dates
+
     erb :view_one_space
   end
 
