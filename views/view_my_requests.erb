@@ -3,6 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <center> <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+      <div>
+        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+          <button type="submit">Sign Out</button>
+        </form>
+      </div>
+      </center>
   </head>
   <body>
     <h1>My Requests</h1>
