@@ -7,7 +7,11 @@
   <body>
     <div class="name"> <%= "#{@space.name}" %> </div> <br>
     <div class="description"> <%= "#{@space.description}" %> </div> <br>
-    <div class="ppn"> <%= "Price per night only: £#{@space.ppn / 100}" %> </div>
+    <div class="ppn"> <%= "Price per night only: £#{@space.ppn}" %> </div>
+    Availability:
+      <%@dates.each do |date| %>
+        <div class="availability"> <%= "#{date.date_offered.strftime("%d %b")}" %> </div>
+      <%end%>
     <a href="/spaces/request"%>Book this space </a>
     <br>
     <a href="/spaces"%>Go back</a>
