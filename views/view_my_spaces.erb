@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <center> <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+      </center>
+
+    <title>
+    </title>
+  </head>
+  <body>
+    <h1>My Spaces</h1>
+    <div class="flash-notice">
+          <%= flash[:notice] %>
+          <br>
+          <br>
+       </div>
+       <div class="">
+         <% @my_spaces.each do |space| %>
+         <li> ID: <%= space.id%>, <%= space.name%> </li>
+         <br>
+         <%= space.description%>
+         <br>
+         <%= space.ppnd%>
+         <% end %>
+       </div>
+  </body>
+</html>
