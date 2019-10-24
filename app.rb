@@ -9,7 +9,7 @@ require './models/request'
 require './models/availability'
 
 class MakersBnB < Sinatra::Base
-  
+
 
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
