@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 require './models/user'
 require './models/space'
 require './models/request'
+require './models/availability'
 
 class MakersBnB < Sinatra::Base
   
@@ -96,6 +97,7 @@ class MakersBnB < Sinatra::Base
       description: params[:description],
       ppnd: params[:ppn],
       user_id: session[:user_id]
+
     )
     session[:space_id] = @space.id
     flash[:notice] = "Your listing, #{@space.name}, ID #{@space.id} has been successfully added."

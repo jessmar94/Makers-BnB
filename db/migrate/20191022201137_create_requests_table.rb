@@ -3,6 +3,7 @@ class CreateRequestsTable < ActiveRecord::Migration[6.0]
     create_table :requests do |t|
       t.belongs_to :user
       t.belongs_to :space
+      t.has_many :availability
       t.date :start_date
       t.date :end_date
       t.string :status
