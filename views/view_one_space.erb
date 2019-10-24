@@ -17,7 +17,7 @@
     <div class="name"> <%= "#{@space.name}" %> </div> <br>
     <div class="description"> <%= "#{@space.description}" %> </div> <br>
 
-    <div class="ppn"> <%= "Price per night only: £#{@space.ppn / 100}" %> </div>
+    <div class="ppn"> <%= "Price per night only: £#{@space.ppn}" %> </div>
     <form class="" action="/requests/new" method="post">
       Start date: <input type="date" name="start_date"></input>
       <br>

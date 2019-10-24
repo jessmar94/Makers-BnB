@@ -2,19 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <center> <form class="" action="/user-options">
-      <button type="submit" name="Home"> Home </button>
-    </form>
-      <div>
-        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
-          <button type="submit">Sign Out</button>
-        </form>
-      </div>
-      </center>
+    <title>My Requests</title>
   </head>
   <body>
+  <header>
     <h1>My Requests</h1>
+    <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+    <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+      <button type="submit">Sign Out</button>
+    </form>
+  </header>
+
     <div class="flash-notice">
           <%= flash[:notice] %>
     </div>
@@ -36,11 +36,12 @@
         <br>Start Date: <%=request.start_date %>
         <br>End Date: <%=request.end_date %>
         <br>Status: <%=request.status %>
-          <form class="" action="/requests" method="post">
+          <form class="accept_request" action=<%= "/requests/#{request.id}/accept" %> method="post">
             <button type="submit" name="accept">Accept</button>
-            <button type="submit" name="decline">Decline</button>
           </form>
-        <br>
+          <form class="decline_request" action=<%= "/requests/#{request.id}/decline" %> method="post">
+            <button type="submit" name="accept">Decline</button>
+          </form>
         <br>
      <% end %>
 
