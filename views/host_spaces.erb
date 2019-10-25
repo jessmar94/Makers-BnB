@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
     <center> <form class="" action="/user-options">
       <button type="submit" name="Home" style="background-color:DodgerBlue;"> Home </button>
     </form>
+
+    <center>
+
       <div>
         <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
           <button type="submit" style="background-color:DodgerBlue;">Sign Out</button>
         </form>
       </div>
+
       <form class="" action="/requests">
         <button type="submit" name="requests" style="background-color:DodgerBlue;">My Requests</button>
       </form>
@@ -18,6 +23,19 @@
   </head>
   <body>
     <h1>Host Your Space</h1>
+
+      </center>
+  </head>
+  <body>
+    <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+    
+    <form class="" action="/requests">
+      <button type="submit" name="requests">My Requests</button>
+    </form>
+
+
     <form class="" action="/new-spaces " method="post">
       <input type="text" name="name" placeholder="name your space">
       <input type="text" name="description" placeholder="add a description">

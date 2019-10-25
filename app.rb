@@ -10,7 +10,6 @@ require './models/availability'
 
 class MakersBnB < Sinatra::Base
 
-
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
   register Sinatra::Flash
@@ -103,6 +102,7 @@ class MakersBnB < Sinatra::Base
       ppn: params[:ppn],
       user_id: session[:user_id]
     )
+    @new_space.add_dates(start_date: params[:start_date], end_date: params[:end_date])
     session[:space_id] = @new_space.id
     flash[:notice] = "Your listing, #{@new_space.name}, ID #{@new_space.id} has been successfully added."
     redirect '/my-spaces'
@@ -148,10 +148,6 @@ class MakersBnB < Sinatra::Base
     redirect '/requests'
   end
 
-
-  # Delete space
-
   run! if app_file == $0
-
 
 end
