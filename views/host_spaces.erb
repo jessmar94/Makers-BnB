@@ -4,26 +4,27 @@
     <meta charset="utf-8">
     <title></title>
     <center> <form class="" action="/user-options">
-      <button type="submit" name="Home"> Home </button>
+      <button type="submit" name="Home" style="background-color:DodgerBlue;"> Home </button>
     </form>
       <div>
         <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
-          <button type="submit">Sign Out</button>
+          <button type="submit" style="background-color:DodgerBlue;">Sign Out</button>
         </form>
       </div>
       <form class="" action="/requests">
-        <button type="submit" name="requests">My Requests</button>
+        <button type="submit" name="requests" style="background-color:DodgerBlue;">My Requests</button>
       </form>
       </center>
   </head>
   <body>
+    <h1>Host Your Space</h1>
     <form class="" action="/new-spaces " method="post">
       <input type="text" name="name" placeholder="name your space">
       <input type="text" name="description" placeholder="add a description">
       <input type="text" name="ppn" placeholder="price per night">
       <input type="date" name="start_date">
       <input type="date" name="end_date">
-      <button type="sumbit" name="button">Add your space</button>
+      <button type="sumbit" name="button" style="background-color:DodgerBlue;">Add your space</button>
     </form>
   </body>
 </html>

@@ -8,10 +8,10 @@
   <header>
     <h1>My Requests</h1>
     <form class="" action="/user-options">
-      <button type="submit" name="Home"> Home </button>
+      <button type="submit" name="Home" style="background-color:DodgerBlue;"> Home </button>
     </form>
     <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
-      <button type="submit">Sign Out</button>
+      <button type="submit" style="background-color:DodgerBlue;">Sign Out</button>
     </form>
   </header>
 
@@ -36,11 +36,13 @@
         <br>Start Date: <%=request.start_date %>
         <br>End Date: <%=request.end_date %>
         <br>Status: <%=request.status %>
-          <form class="accept_request" action=<%= "/requests/#{request.id}/accept" %> method="post">
-            <button type="submit" name="accept">Accept</button>
+
+
+  <form class="accept_request" action=<%= "/requests/#{request.id}/accept" %> method="post">
+            <button type="submit" name="accept" style="background-color:rgba(13, 190, 4, 0.91);">Accept</button>
           </form>
           <form class="decline_request" action=<%= "/requests/#{request.id}/decline" %> method="post">
-            <button type="submit" name="accept">Decline</button>
+            <button type="submit" name="accept" style="background-color:rgba(225, 5, 5, 0.91);">Decline</button>
           </form>
         <br>
      <% end %>
