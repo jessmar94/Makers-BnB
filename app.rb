@@ -10,7 +10,6 @@ require './models/availability'
 
 class MakersBnB < Sinatra::Base
 
-
   set :database_file, 'config/database.yml'
   register Sinatra::ActiveRecordExtension
   register Sinatra::Flash
@@ -103,6 +102,7 @@ class MakersBnB < Sinatra::Base
       ppn: params[:ppn],
       user_id: session[:user_id]
     )
+    @new_space.add_dates(start_date: params[:start_date], end_date: params[:end_date])
     session[:space_id] = @new_space.id
     flash[:notice] = "Your listing, #{@new_space.name}, ID #{@new_space.id} has been successfully added."
     redirect '/my-spaces'
@@ -129,28 +129,26 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
-    request = Request.all
-    @requests_made = request.where(user_id: session[:user_id])
+    requests = Request.all
+    @requests_made = requests.where(user_id: session[:user_id])
     space = Space.all
-    @requests_received = request.where(space_id: (space.where(user_id: session[:user_id])))
+    @requests_received = requests.where(space_id: (space.where(user_id: session[:user_id])))
 
     erb :view_my_requests
   end
 
-  post '/requests' do
-    request = Request.all
-    request_received = request.where(id: params[:id])
-    if params[:accept]
-      Request.update(request_received.id, :status => "Declined")
-    elsif params[:decline]
-      Request.update(request_received.id, :status => "Accepted")
-    end
+  post '/requests/:id/accept' do
+      this_request = Request.find(params[:id])
+      this_request.accept
+      redirect '/requests'
   end
 
-
-  # Delete space
+  post '/requests/:id/decline' do
+    this_request = Request.find(params[:id])
+    this_request.decline
+    redirect '/requests'
+end
 
   run! if app_file == $0
-
 
 end

@@ -2,21 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <center> <form class="" action="/user-options">
-      <button type="submit" name="Home"> Home </button>
-    </form>
-      <div>
-        <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
-          <button type="submit">Sign Out</button>
-        </form>
-      </div>
-      <form class="" action="/requests">
-        <button type="submit" name="requests">My Requests</button>
-      </form>
-      </center>
+    <title>User Profile</title>
   </head>
   <body>
+  <header>
+    <form class="" action="/user-options">
+      <button type="submit" name="Home"> Home </button>
+    </form>
+    <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
+      <button type="submit">Sign Out</button>
+    </form>
+    <form class="" action="/requests">
+      <button type="submit" name="requests">My Requests</button>
+    </form>
+  </header>
+
     <form class="form-inline" action="/spaces">
       <button type="submit" name="explore">Explore spaces</button>
     </form>

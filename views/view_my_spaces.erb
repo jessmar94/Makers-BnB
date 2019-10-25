@@ -17,18 +17,15 @@
     </div>
   </header>
     <div class="flash-notice">
-          <%= flash[:notice] %>
-          <br>
-          <br>
-       </div>
+      <%= flash[:notice] %>
+    </div>
        <div class="">
          <% @my_spaces.each do |space| %>
-         <li> ID: <%= space.id%>, <%= space.name%> </li>
-         <br>
-         <%= space.description%>
-         <br>
-         <%= space.ppn%>
+         <space id="<%= space.id%>">
+            <h2><%= space.name%></h2><br>
+            <p><%= space.description%></p><br>
+            <p><%= space.ppn%></p>
+          </space>
          <% end %>
-       </div>
   </body>
 </html>
