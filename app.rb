@@ -129,10 +129,9 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
-    requests = Request.all
-    @requests_made = requests.where(user_id: session[:user_id])
-    space = Space.all
-    @requests_received = requests.where(space_id: (space.where(user_id: session[:user_id])))
+    p @user_id = session[:user_id]
+    @requests_made = Request.where(user_id: @user_id )
+    @requests_to_review = Request.by_owner(owner_id: @user_id)
 
     erb :view_my_requests
   end
@@ -140,6 +139,7 @@ class MakersBnB < Sinatra::Base
   post '/requests/:id/accept' do
       this_request = Request.find(params[:id])
       this_request.accept
+      this_request.remove_availability
       redirect '/requests'
   end
 

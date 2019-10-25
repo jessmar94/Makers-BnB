@@ -5,7 +5,8 @@
     <title>My Requests</title>
   </head>
   <body>
-  <header>
+  <header> </header>
+
     <h1>My Requests</h1>
     <form class="" action="/user-options">
       <button type="submit" name="Home"> Home </button>
@@ -13,37 +14,33 @@
     <form action="/users/<%= session[:user_id] %>/session/destroy" method="post">
       <button type="submit">Sign Out</button>
     </form>
-  </header>
-
     <div class="flash-notice">
-          <%= flash[:notice] %>
+      <%= flash[:notice] %>
     </div>
-    <h3> Requests I've Made </h3>
-       <% @requests_made.each do |request| %>
-        <li> Request ID: <%=request.id %> </li>
-          <br>Space ID: <%=request.space_id %>
-          <br>Start Date: <%=request.start_date %>
-          <br>End Date: <%=request.end_date %>
-          <br>Status: <%=request.status %>
-          <br>
-          <br>
-       <% end %>
+    <h2>Requests I've Made</h2>
+      <% @requests_made.each do |request| %>
+        <div class = 'request'>
+        <h3><%=request.space_name%></h3>
+          <p><%=request.space_description %></p>
+          <p>Start Date: <%=request.start_date %></p>
+          <p>End Date: <%=request.end_date %></p>
+          <p>Status: <%=request.status %></p>
+        </div>
+      <% end %>
 
-    <h3> Requests I've Received </h3>
-      <% @requests_received.each do |request| %>
-      <li> Request ID: <%=request.id %> </li>
-        <br>Space ID: <%=request.space_id %>
-        <br>Start Date: <%=request.start_date %>
-        <br>End Date: <%=request.end_date %>
-        <br>Status: <%=request.status %>
-          <form class="accept_request" action=<%= "/requests/#{request.id}/accept" %> method="post">
-            <button type="submit" name="accept">Accept</button>
-          </form>
-          <form class="decline_request" action=<%= "/requests/#{request.id}/decline" %> method="post">
-            <button type="submit" name="accept">Decline</button>
-          </form>
-        <br>
-     <% end %>
-
+    <h2> Requests I've Received </h2>
+      <% @requests_to_review.each do |request| %>
+      <div class = request > 
+        <h3><%=request.space_name%> <span>(<%=request.status%>)</span></h3>
+        <p><%=request.space_description %></p>
+        </p>From <%=request.start_date %> until <%=request.end_date %></p>
+        <form class="accept_request" action=<%= "/requests/#{request.id}/accept" %> method="post">
+          <button type="submit" name="accept">Accept</button>
+        </form>
+        <form class="decline_request" action=<%= "/requests/#{request.id}/decline" %> method="post">
+          <button type="submit" name="accept">Decline</button>
+        </form>
+      </div>
+    <% end %>
   </body>
 </html>
