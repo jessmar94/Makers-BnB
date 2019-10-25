@@ -21,11 +21,10 @@ feature 'user can view individual space page' do
     visit '/spaces'
     click_link('See more...')
     expect(page).to have_button 'Request this space'
-
   end
 
   # we no longer need this test with the datepicker
-  
+
   # scenario "shows the spaces availability" do
   #   space = Space.create(name: "Space Name", description: "Testing", ppn: 5000)
   #
