@@ -131,9 +131,8 @@ class MakersBnB < Sinatra::Base
   get '/requests' do
     requests = Request.all
     @requests_made = requests.where(user_id: session[:user_id])
-    space = Space.all
-    @requests_received = requests.where(space_id: (space.where(user_id: session[:user_id])))
-
+    @space = Space.all
+    @requests_received = requests.where(space_id: (@space.where(user_id: session[:user_id])))
     erb :view_my_requests
   end
 
@@ -147,7 +146,7 @@ class MakersBnB < Sinatra::Base
     this_request = Request.find(params[:id])
     this_request.decline
     redirect '/requests'
-end
+  end
 
   run! if app_file == $0
 
