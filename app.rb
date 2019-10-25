@@ -81,16 +81,13 @@ class MakersBnB < Sinatra::Base
 
   get '/spaces/:id' do
 
-    p @space = Space.find(params[:id])
-    p @dates = Availability.all
+    @space = Space.find(params[:id])
+    @dates = Availability.all
     session[:space_id] = @space.id
 
     @space = Space.find(params[:id])
     # p Space.all
     @dates = Availability.where(spaces_id: @space.id)
-    p "dates"
-    p @dates
-
     erb :view_one_space
   end
 
@@ -147,7 +144,7 @@ class MakersBnB < Sinatra::Base
       Request.update(request_received.id, :status => "Declined")
     elsif params[:decline]
       Request.update(request_received.id, :status => "Accepted")
-    end 
+    end
   end
 
 
