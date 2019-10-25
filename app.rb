@@ -129,23 +129,25 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/requests' do
-    request = Request.all
-    @requests_made = request.where(user_id: session[:user_id])
+    requests = Request.all
+    @requests_made = requests.where(user_id: session[:user_id])
     space = Space.all
-    @requests_received = request.where(space_id: (space.where(user_id: session[:user_id])))
+    @requests_received = requests.where(space_id: (space.where(user_id: session[:user_id])))
 
     erb :view_my_requests
   end
 
-  post '/requests' do
-    request = Request.all
-    request_received = request.where(id: params[:id])
-    if params[:accept]
-      Request.update(request_received.id, :status => "Declined")
-    elsif params[:decline]
-      Request.update(request_received.id, :status => "Accepted")
-    end
+  post '/requests/:id/accept' do
+      this_request = Request.find(params[:id])
+      this_request.accept
+      redirect '/requests'
   end
+
+  post '/requests/:id/decline' do
+    this_request = Request.find(params[:id])
+    this_request.decline
+    redirect '/requests'
+end
 
 
   # Delete space
