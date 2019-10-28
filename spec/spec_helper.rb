@@ -4,7 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'features/web_helpers'
-# require 'bcrypt'
+require 'bcrypt'
 
 # Specify that this is a Test environment
 ENV['RACK_ENV'] = 'test'
